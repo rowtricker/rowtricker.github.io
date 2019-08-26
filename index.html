@@ -42,4 +42,77 @@ For the multiple-choice questions:
 </b>
 <br>
 <br>
+<!-- -->
+<!--SMALL IP-->
+<!-- -->
+<hr>
+SMALL IP
+<hr>
+
+<script>
+makeNumberQuestionElement( true, 'For the small instance, state the optimal IP objective value.', 'ip_val_small', 0, -Infinity, Infinity, 2, 7 );
+</script>
+
+<script>
+makeMatrixQuestionElement( false, 'For the small instance, state the optimal IP solution as a column vector.', 'ip_sol_small', 5, 1, 2, 10 );
+</script>
+
+<!-- -->
+<!--LARGE IP-->
+<!-- -->
+<hr>
+LARGE IP
+<hr>
+
+<script>
+makeNumberQuestionElement( true, 'For the large instance, state the optimal IP objective value.', 'ip_val_large', 0, -Infinity, Infinity, 2, 7 );
+</script>
+
+<script>
+makeMatrixQuestionElement( false, 'For the large instance, state the optimal IP solution as a column vector.', 'ip_sol_large', 210, 1, 2, 10 );
+</script>
+
+<script>
+makeNumberQuestionElement( false, 'For the large instance, state the running time needed to solve the IP to optimality.', 'ip_time_large', 0, 0, Infinity, 2, 7 );
+</script>
+
+<script>
+makeNumberQuestionElement( false, 'For the large instance, state the number of nodes needed to solve the IP to optimality.', 'ip_nodes_large', 0, 0, Infinity, 0, 7 );
+</script>
+
+
+<!-- -->
+<!--LARGE LP-->
+<!-- -->
+<hr>
+LARGE LP
+<hr>
+
+<script>
+makeNumberQuestionElement( true, 'For the large instance, state the optimal LP relaxation objective value.', 'lp_val_large', 0, -Infinity, Infinity, 2, 7 );
+</script>
+
+<script>
+makeNumberQuestionElement( false, 'For the large instance, state the running time needed to solve the LP relaxation to optimality.', 'lp_time_large', 0, 0, Infinity, 2, 7 );
+</script>
+               
+
+<!-- -->
+<!--THEORY-->
+<!-- -->
+<hr>
+THEORY
+<hr>
+
+<script>
+makeMCQuestionElement( true, 'In general for this problem, the solution of the LP relaxation is:', 'feas', 'Always infeasible for the IP problem.', 'Always feasible for the IP problem.', 'Always potentially feasible for the IP problem.', 'None of the above.' );
+</script>
+
+<script>
+makeMCQuestionElement( true, 'In general for this problem, the optimal objective value of the LP relaxation is:', 'value', 'Equal to the optimal IP objective value.', 'A lower bound for the optimal IP objective value.', 'An upper bound for the optimal IP objective value.', 'Unrelated to the optimal IP objective value.', 'None of the above.' );
+</script>
+
+<script>
+makeMCQuestionElement( true, 'In general for this problem, the running time needed to solve the LP relaxation is:', 'time', 'Approximately equal to the running time needed for the IP problem.', 'Significantly lower than the running time needed for the IP problem.', 'Significantly higher than the running time needed for the IP problem.', 'None of the above.' );
+</script>
 </body></html>
