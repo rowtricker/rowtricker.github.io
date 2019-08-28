@@ -1,502 +1,98 @@
-<html><head>
-<title>Assignment 1 Combinatorial Optimization</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Assignment 1 Combinatorial Optimization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="scripts.js"></script>
 </head>
 <body>
 <!-- -->
 <!--UTILITY FUNCTIONS-->
 <!-- -->
 
-<div id="util_functions_div_id">
+<div id="util_functions_div_id" class="container">
 
-<!-- -->
-<!-- -->
-<script>
-function roundString(value, decimals)
-{
-	// adjusted from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
-	
-	// convert to number
-	value = +value;
-	decimals = +decimals;
-	
-	// check
-	if( isNaN(value) || !(typeof decimals === 'number' && decimals % 1 === 0) )
-	{
-		return NaN;
-	}
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="question1.html">Instructions</a>
+            <a class="navbar-brand" href="question1.html">Question 1</a>
+            <a class="navbar-brand" href="question2.html">Question 2</a>
+            <a class="navbar-brand" href="question3.html">Question 3</a>
+            <a class="navbar-brand" href="question4.html">Question 4</a>
+        </nav>
 
-	// check negative
-	var isNegative = value < 0;
-	if( isNegative )
-	{
-		value = -value;
-	}
+        <div class="jumbotron text-center">
+            <h1>Combinatorial Optimization 2019-2020</h1>
+            <h2>Instructions</h2>
+        </div>
+    </div>
 
-	if (typeof decimals === 'undefined' || decimals === 0)
-	{
-		value = Math.round(value);
-	}
-	else
-	{
-		value = +(Math.round(+(value + 'e+' + decimals)) + 'e-' + decimals);
-	}
-	
-	// handle negative
-	if( isNegative )
-	{
-		value = -value;
-	}
-	
-	// convert to string
-	value = value.toString();
-	return value;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function updateTextAreaAndLabel( fromTextAreaId, toTextAreaID, labelID, qNumRows, qNumCols, decimals )
-{
-	// get txt
-	var txtArea = document.getElementById( fromTextAreaId );
-	var rawTxt = txtArea.value;
-	
-	// convert to csv format
-	var lines = rawTxt.replace(/(\r\n)/g,';').replace(/[\r\n]/g,';').replace(/[ \t]/g,',');
-	
-	// split each line
-	var arrayLines = lines.split(';');
-	
-	// detected dimension
-	var numRows = arrayLines.length;
-	var numCols = 1 + (arrayLines[0].match(/,/g)||[]).length;
-	
-	// init
-	var success = true;
-	var failIncorrectDimensions = ( numRows <= 0 ) || ( numRows != qNumRows ) || ( numCols <= 0 ) || ( numCols != qNumCols );
-	var failInconsistentDimensions = false;
-	var failValues = false;
-	
-	// parse including round
-	var currentNumCols = 0;
-	for( var i=0; i < arrayLines.length; i++ )
-	{
-		// check dimension
-		currentNumCols = 1 + (arrayLines[i].match(/,/g)||[]).length;
-		if( currentNumCols != numCols )
-		{
-			failInconsistentDimensions = true;
-		}
-		
-		// insert 0's if needed
-		if( arrayLines[i].length == 0 )
-		{
-			arrayLines[i] = '0';
-		}
-		else
-		{
-			arrayLines[i] = arrayLines[i].replace(/^,/g, '0,').replace(/,$/g, ',0').replace(/,(?=,)/g, ',0');
-		}
-		
-		// convert each element to number and round, then convert back
-		var arrayElems = arrayLines[i].split(',');
-		for( var j=0; j < arrayElems.length; j++ )
-		{
-			arrayElems[j] = roundString( arrayElems[j], decimals );
-			
-			if( isNaN(arrayElems[j]) )
-			{
-				failValues = true;
-			}
-		}
-		
-		// combine and store new string
-		arrayLines[i] = arrayElems.join(',');
-	}
-	
-	// combine using newline instead of ; for readability
-	lines = arrayLines.join('\n');
-	
-	// successful?
-	success = (success && !failIncorrectDimensions && !failInconsistentDimensions && !failValues );
-	
-	// make new label
-	var newLabel = '';
-	if( success )
-	{
-		newLabel += '<font color="green"><b>Success! Detected a matrix of size ' + numRows + ' x ' + numCols + '.</b></font>';
-	}
-	else
-	{
-		newLabel += '<font color="red"><b>Failure!';
-		if( failInconsistentDimensions )
-		{
-			newLabel += ' Inconsistent dimensions detected!';
-		}
-		else
-		{
-			if( failIncorrectDimensions )
-			{
-				newLabel += ' Incorrect dimensions detected (detected a matrix of size ' + numRows + ' x ' + numCols + ')!';
-			}
-		}
-		if( failValues )
-		{
-			newLabel += ' Invalid values detected!';
-		}
-		newLabel += '</b></font>';
-	}
-	
-	// set textarea
-	var resultTxtArea = document.getElementById( toTextAreaID );
-	resultTxtArea.value = lines;
-	
-	// set label
-	var resultLabel = document.getElementById( labelID );
-	resultLabel.innerHTML = newLabel;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function getFormElement()
-{
-	var elem = document.getElementById( 'util_functions_div_id' ).parentElement;
-	return elem;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeQuestionNumber()
-{
-	if( typeof( makeQuestionNumber.num ) == 'undefined' )
-	{
-		makeQuestionNumber.num = 0;
-	}
-	
-	++makeQuestionNumber.num;
-	
-	return makeQuestionNumber.num;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeQuestionLabel( qnum, qlabel )
-{
-	var label = 'Question ' + qnum + ':<br>' + qlabel;
-	return label;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeQuestionName( qtype, qauto, qnum, qname )
-{
-	var name = '_' + qtype;
-	if( qauto )
-	{
-		name += '_auto';
-	}
-	else
-	{
-		name += '_manual';
-	}
-	name += '_question_' + qnum + '_' + qname;
-	return name;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeNumberQuestionName( qtype, qauto, qnum, qdecimals, qname )
-{
-	var name = '_' + qtype;
-	if( qauto )
-	{
-		name += '_auto';
-	}
-	else
-	{
-		name += '_manual';
-	}
-	name += '_decimals_' + qdecimals;
-	name += '_question_' + qnum + '_' + qname;
-	return name;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeQuestionId( name )
-{
-	var id = name + '_id_';
-	return id;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeLabelElement( label, for_id, own_id )
-{
-	var content = '<label';
-	
-	if( typeof( for_id ) != 'undefined' )
-	{
-		content += ' for=' + for_id;
-	}
-	
-	if( typeof( own_id ) != 'undefined' )
-	{
-		content += ' id=' + own_id;
-	}
-	content += '>';
-	
-	content += '<font color="black"><b>' + label + '</b></font></label>';
-	return content;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeNumberQuestionElement( qauto, qlabel, qname, value, min, max, decimals, width )
-{
-	var qnum = makeQuestionNumber();
-	var label = makeQuestionLabel( qnum, qlabel );
-	var name = makeNumberQuestionName( 'num', qauto, qnum, decimals, qname );
-	var id = makeQuestionId( name );
-	var step = Math.pow( 10, -decimals );
-	
-	var content = '';
-	content += makeLabelElement( label, id );
-	content += '<br>';
-	content += makeLabelElement( 'If needed, round your answer to ' + decimals + ' decimal places.', id );
-	content += '<br>';
-	content += '<input type="number" id=' + id + ' name=' + name + ' value=' + value + ' min=' + min + ' max=' + max + ' step=' + step + ' style="background-color:#D2D2D2;width:' + width + 'em" required="true" />';
-	content += '<br><br>';
-	
-	var elem = getFormElement();
-	elem.innerHTML += content;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeMatrixQuestionElement( qauto, qlabel, qname, numRows, numCols, decimals, width )
-{
-	var qnum = makeQuestionNumber();
-	var label = makeQuestionLabel( qnum, qlabel );
-	var name = makeNumberQuestionName( 'numarea', qauto, qnum, decimals, qname );
-	var id = makeQuestionId( name );
-	var shadowID = id + '_shadow';
-	var labelID = id + '_label';
-	
-	var content = '';
-	content += makeLabelElement( label, shadowID );
-	content += '<br>';
-	content += makeLabelElement( 'Your answer should be a numeric ' + numRows + ' x ' + numCols + ' matrix. Your answer will be automatically rounded to ' + decimals + ' decimal places.', shadowID );
-	content += '<br>';
-	content += '<textarea id=' + shadowID + ' oninput="updateTextAreaAndLabel(\'' + shadowID + '\',\'' + id + '\',\'' + labelID + '\',' + numRows + ',' + numCols + ',' + decimals + ')" style="background-color:#D2D2D2;width:' + width + 'em;height:' + width + 'em" required="true"></textarea>';
-	content += '<br>';
-	content += '<input type="button" value="Parse" onclick="updateTextAreaAndLabel(\'' + shadowID + '\',\'' + id + '\',\'' + labelID + '\',' + numRows + ',' + numCols + ',' + decimals + ')">';
-	content += '<br>';
-	content += makeLabelElement( 'This is the (read-only) parsed result that will be submitted:', id );
-	content += '<br>';
-	content += '<textarea id=' + id + ' name=' + name + ' style="background-color:#D2D2D2;width:' + width + 'em;height:' + width + 'em" readonly="true" required="true"></textarea>';
-	content += '<br>';
-	content += makeLabelElement( '', id, labelID );
-	content += '<br><br>';
-	
-	var elem = getFormElement();
-	elem.innerHTML += content;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeTextQuestionElement( qauto, qlabel, qname, width )
-{
-	var qnum = makeQuestionNumber();
-	var label = makeQuestionLabel( qnum, qlabel );
-	var name = makeQuestionName( 'txt', qauto, qnum, qname );
-	var id = makeQuestionId( name );
-	
-	var content = '';
-	content += makeLabelElement( label, id );
-	content += '<br>';
-	content += '<input type="text" id=' + id + ' name=' + name + ' style="background-color:#D2D2D2;width:' + width + 'em" required="true" />';
-	content += '<br><br>';
-	
-	var elem = getFormElement();
-	elem.innerHTML += content;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeTextAreaQuestionElement( qauto, qlabel, qname, width )
-{
-	var qnum = makeQuestionNumber();
-	var label = makeQuestionLabel( qnum, qlabel );
-	var name = makeQuestionName( 'txtarea', qauto, qnum, qname );
-	var id = makeQuestionId( name );
-	
-	var content = '';
-	content += makeLabelElement( label, id );
-	content += '<br>';
-	content += '<textarea id=' + id + ' name=' + name + ' style="background-color:#D2D2D2;width:' + width + 'em;height:' + width + 'em" required="true"></textarea>';
-	content += '<br><br>';
-	
-	var elem = getFormElement();
-	elem.innerHTML += content;
-}
-</script>
-
-<!-- -->
-<!-- -->
-<script>
-function makeMCQuestionElement( qauto, qlabel, qname )
-{
-	var qnum = makeQuestionNumber();
-	var label = makeQuestionLabel( qnum, qlabel );
-	var name = makeQuestionName( 'mc', qauto, qnum, qname );
-	var id = makeQuestionId( name );
-	
-	var content = '';
-	content += makeLabelElement( label );
-	content += '<br>';
-	content += '<div class="row" >';
-	
-	for(i = 3; i < arguments.length; i++)
-	{
-		var mcNum = i - 2;
-		var mcId = id + '__ans_' + mcNum;
-		var mcLabel = arguments[i];
-		var mcValue = '"' + mcLabel + '"';
-		
-		content += '<input type="radio" id=' + mcId + ' name=' + name + ' value=' + mcValue;
-		if( i == (arguments.length - 1) )
-		{
-			content += ' checked="true"';
-		}
-		content += ' />';
-		
-		content += makeLabelElement( mcLabel, mcId );
-		content += '<br>';
-	}
-	
-	content += '</div>';
-	content += '<br>';
-	
-	var elem = getFormElement();
-	elem.innerHTML += content;
-}
-</script>
+    <!-- -->
+    <!--INSTRUCTIONS-->
+    <!-- -->
+    <div class="container">
+        <hr>
+        For the numerical questions:
+        <ol>
+            <li>Use a dot "." as decimal mark.
+            </li>
+            <li>Round your answer to the listed number of decimals if needed.
+            </li>
+        </ol>
+        <br>
+        For the questions where the solution must be stated:
+        <ol>
+            <li>Each space, tab, and comma is interpreted as an element delimiter.
+            </li>
+            <li>Each newline and semicolon is interpreted as a row delimiter.
+            </li>
+            <li>Empty elements are set to zero.
+            </li>
+            <li>Direct copy-paste from Aimms is therefore supported.
+            </li>
+            <li>Alternatively, state your answer in csv format.
+            </li>
+        </ol>
+        <br>
+        For the multiple-choice questions:
+        <ol>
+            <li>Choose the most complete correct answer.
+            </li>
+        </ol>
+        <br>
+        <b>Important:
+            <ol>
+                <li>You cannot save your answers, so prepare and keep a local copy of your answers.
+                </li>
+                <li>You can check your parsed answers in the Autolab output.
+                </li>
+                <li>Until the official grading, your score is either 0% or 100%
+                </li>
+                <li>A score of 100% indicates that your answers are parsed correctly. After the
+                    deadline, your answers will be graded.
+                </li>
+                <li>A score of 0% indicates that your answers cannot be parsed correctly. Contact
+                    the
+                    staff member responsible for grading the assignment.
+                </li>
+                <li>Ensure that both group members have confirmed their membership if working
+                    together
+                    with a partner
+                </li>
+            </ol>
+        </b>
+        <br>
+        <br>
+    </div>
 
 </div>
-
-<h1>Answers</h1>
-<!-- -->
-<!--INSTRUCTIONS-->
-<!-- -->
-INSTRUCTIONS
-<hr>
-For the numerical questions:
-<ol>
-	<li>Use a dot "." as decimal mark.
-	</li><li>Round your answer to the listed number of decimals if needed.
-</li></ol>
-<br>
-For the questions where the solution must be stated:
-<ol>
-	<li>Each space, tab, and comma is interpreted as an element delimiter.
-	</li><li>Each newline and semicolon is interpreted as a row delimiter.
-	</li><li>Empty elements are set to zero.
-	</li><li>Direct copy-paste from Aimms is therefore supported.
-	</li><li>Alternatively, state your answer in csv format.
-</li></ol>
-<br>
-For the multiple-choice questions:
-<ol>
-<li>Choose the most complete correct answer.
-</li></ol>
-<br>
-<b>Important:
-<ol>
-	<li>You cannot save your answers, so prepare and keep a local copy of your answers.
-	</li><li>You can check your parsed answers in the Autolab output.
-	</li><li>Until the official grading, your score is either 0% or 100%
-	</li><li>A score of 100% indicates that your answers are parsed correctly. After the deadline, your answers will be graded.
-	</li><li>A score of 0% indicates that your answers cannot be parsed correctly. Contact the staff member responsible for grading the assignment.
-	</li><li>Ensure that both group members have confirmed their membership if working together with a partner
-</li></ol>
-</b>
-<br>
-<br>
-<!-- -->
-<!--SMALL IP-->
-<!-- -->
-<hr>
-SMALL IP
-<hr>
-
-<label for="_num_auto_decimals_2_question_1_ip_val_small_id_"><font color="black"><b>Question 1:<br>For the small instance, state the optimal IP objective value.</b></font></label><br><label for="_num_auto_decimals_2_question_1_ip_val_small_id_"><font color="black"><b>If needed, round your answer to 2 decimal places.</b></font></label><br><input type="number" id="_num_auto_decimals_2_question_1_ip_val_small_id_" name="_num_auto_decimals_2_question_1_ip_val_small" value="0" min="-Infinity" max="Infinity" step="0.01" style="background-color:#D2D2D2;width:7em" required="true"><br><br>
-
-<label for="_numarea_manual_decimals_2_question_2_ip_sol_small_id__shadow"><font color="black"><b>Question 2:<br>For the small instance, state the optimal IP solution as a column vector.</b></font></label><br><label for="_numarea_manual_decimals_2_question_2_ip_sol_small_id__shadow"><font color="black"><b>Your answer should be a numeric 5 x 1 matrix. Your answer will be automatically rounded to 2 decimal places.</b></font></label><br><textarea id="_numarea_manual_decimals_2_question_2_ip_sol_small_id__shadow" oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_2_ip_sol_small_id__shadow','_numarea_manual_decimals_2_question_2_ip_sol_small_id_','_numarea_manual_decimals_2_question_2_ip_sol_small_id__label',5,1,2)" style="background-color:#D2D2D2;width:10em;height:10em" required="true"></textarea><br><input type="button" value="Parse" onclick="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_2_ip_sol_small_id__shadow','_numarea_manual_decimals_2_question_2_ip_sol_small_id_','_numarea_manual_decimals_2_question_2_ip_sol_small_id__label',5,1,2)"><br><label for="_numarea_manual_decimals_2_question_2_ip_sol_small_id_"><font color="black"><b>This is the (read-only) parsed result that will be submitted:</b></font></label><br><textarea id="_numarea_manual_decimals_2_question_2_ip_sol_small_id_" name="_numarea_manual_decimals_2_question_2_ip_sol_small" style="background-color:#D2D2D2;width:10em;height:10em" readonly="true" required="true"></textarea><br><label for="_numarea_manual_decimals_2_question_2_ip_sol_small_id_" id="_numarea_manual_decimals_2_question_2_ip_sol_small_id__label"><font color="black"><b></b></font></label><br><br>
-
-<!-- -->
-<!--LARGE IP-->
-<!-- -->
-<hr>
-LARGE IP
-<hr>
-
-<label for="_num_auto_decimals_2_question_3_ip_val_large_id_"><font color="black"><b>Question 3:<br>For the large instance, state the optimal IP objective value.</b></font></label><br><label for="_num_auto_decimals_2_question_3_ip_val_large_id_"><font color="black"><b>If needed, round your answer to 2 decimal places.</b></font></label><br><input type="number" id="_num_auto_decimals_2_question_3_ip_val_large_id_" name="_num_auto_decimals_2_question_3_ip_val_large" value="0" min="-Infinity" max="Infinity" step="0.01" style="background-color:#D2D2D2;width:7em" required="true"><br><br>
-
-<label for="_numarea_manual_decimals_2_question_4_ip_sol_large_id__shadow"><font color="black"><b>Question 4:<br>For the large instance, state the optimal IP solution as a column vector.</b></font></label><br><label for="_numarea_manual_decimals_2_question_4_ip_sol_large_id__shadow"><font color="black"><b>Your answer should be a numeric 210 x 1 matrix. Your answer will be automatically rounded to 2 decimal places.</b></font></label><br><textarea id="_numarea_manual_decimals_2_question_4_ip_sol_large_id__shadow" oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_4_ip_sol_large_id__shadow','_numarea_manual_decimals_2_question_4_ip_sol_large_id_','_numarea_manual_decimals_2_question_4_ip_sol_large_id__label',210,1,2)" style="background-color:#D2D2D2;width:10em;height:10em" required="true"></textarea><br><input type="button" value="Parse" onclick="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_4_ip_sol_large_id__shadow','_numarea_manual_decimals_2_question_4_ip_sol_large_id_','_numarea_manual_decimals_2_question_4_ip_sol_large_id__label',210,1,2)"><br><label for="_numarea_manual_decimals_2_question_4_ip_sol_large_id_"><font color="black"><b>This is the (read-only) parsed result that will be submitted:</b></font></label><br><textarea id="_numarea_manual_decimals_2_question_4_ip_sol_large_id_" name="_numarea_manual_decimals_2_question_4_ip_sol_large" style="background-color:#D2D2D2;width:10em;height:10em" readonly="true" required="true"></textarea><br><label for="_numarea_manual_decimals_2_question_4_ip_sol_large_id_" id="_numarea_manual_decimals_2_question_4_ip_sol_large_id__label"><font color="black"><b></b></font></label><br><br>
-
-<label for="_num_manual_decimals_2_question_5_ip_time_large_id_"><font color="black"><b>Question 5:<br>For the large instance, state the running time needed to solve the IP to optimality.</b></font></label><br><label for="_num_manual_decimals_2_question_5_ip_time_large_id_"><font color="black"><b>If needed, round your answer to 2 decimal places.</b></font></label><br><input type="number" id="_num_manual_decimals_2_question_5_ip_time_large_id_" name="_num_manual_decimals_2_question_5_ip_time_large" value="0" min="0" max="Infinity" step="0.01" style="background-color:#D2D2D2;width:7em" required="true"><br><br>
-
-<label for="_num_manual_decimals_0_question_6_ip_nodes_large_id_"><font color="black"><b>Question 6:<br>For the large instance, state the number of nodes needed to solve the IP to optimality.</b></font></label><br><label for="_num_manual_decimals_0_question_6_ip_nodes_large_id_"><font color="black"><b>If needed, round your answer to 0 decimal places.</b></font></label><br><input type="number" id="_num_manual_decimals_0_question_6_ip_nodes_large_id_" name="_num_manual_decimals_0_question_6_ip_nodes_large" value="0" min="0" max="Infinity" step="1" style="background-color:#D2D2D2;width:7em" required="true"><br><br>
-
-
-<!-- -->
-<!--LARGE LP-->
-<!-- -->
-<hr>
-LARGE LP
-<hr>
-
-<label for="_num_auto_decimals_2_question_7_lp_val_large_id_"><font color="black"><b>Question 7:<br>For the large instance, state the optimal LP relaxation objective value.</b></font></label><br><label for="_num_auto_decimals_2_question_7_lp_val_large_id_"><font color="black"><b>If needed, round your answer to 2 decimal places.</b></font></label><br><input type="number" id="_num_auto_decimals_2_question_7_lp_val_large_id_" name="_num_auto_decimals_2_question_7_lp_val_large" value="0" min="-Infinity" max="Infinity" step="0.01" style="background-color:#D2D2D2;width:7em" required="true"><br><br>
-
-<label for="_num_manual_decimals_2_question_8_lp_time_large_id_"><font color="black"><b>Question 8:<br>For the large instance, state the running time needed to solve the LP relaxation to optimality.</b></font></label><br><label for="_num_manual_decimals_2_question_8_lp_time_large_id_"><font color="black"><b>If needed, round your answer to 2 decimal places.</b></font></label><br><input type="number" id="_num_manual_decimals_2_question_8_lp_time_large_id_" name="_num_manual_decimals_2_question_8_lp_time_large" value="0" min="0" max="Infinity" step="0.01" style="background-color:#D2D2D2;width:7em" required="true"><br><br>
-               
-
-<!-- -->
-<!--THEORY-->
-<!-- -->
-<hr>
-THEORY
-<hr>
-
-<label><font color="black"><b>Question 9:<br>In general for this problem, the solution of the LP relaxation is:</b></font></label><br><div class="row"><input type="radio" id="_mc_auto_question_9_feas_id___ans_1" name="_mc_auto_question_9_feas" value="Always infeasible for the IP problem."><label for="_mc_auto_question_9_feas_id___ans_1"><font color="black"><b>Always infeasible for the IP problem.</b></font></label><br><input type="radio" id="_mc_auto_question_9_feas_id___ans_2" name="_mc_auto_question_9_feas" value="Always feasible for the IP problem."><label for="_mc_auto_question_9_feas_id___ans_2"><font color="black"><b>Always feasible for the IP problem.</b></font></label><br><input type="radio" id="_mc_auto_question_9_feas_id___ans_3" name="_mc_auto_question_9_feas" value="Always potentially feasible for the IP problem."><label for="_mc_auto_question_9_feas_id___ans_3"><font color="black"><b>Always potentially feasible for the IP problem.</b></font></label><br><input type="radio" id="_mc_auto_question_9_feas_id___ans_4" name="_mc_auto_question_9_feas" value="None of the above." checked="true"><label for="_mc_auto_question_9_feas_id___ans_4"><font color="black"><b>None of the above.</b></font></label><br></div><br>
-
-<label><font color="black"><b>Question 10:<br>In general for this problem, the optimal objective value of the LP relaxation is:</b></font></label><br><div class="row"><input type="radio" id="_mc_auto_question_10_value_id___ans_1" name="_mc_auto_question_10_value" value="Equal to the optimal IP objective value."><label for="_mc_auto_question_10_value_id___ans_1"><font color="black"><b>Equal to the optimal IP objective value.</b></font></label><br><input type="radio" id="_mc_auto_question_10_value_id___ans_2" name="_mc_auto_question_10_value" value="A lower bound for the optimal IP objective value."><label for="_mc_auto_question_10_value_id___ans_2"><font color="black"><b>A lower bound for the optimal IP objective value.</b></font></label><br><input type="radio" id="_mc_auto_question_10_value_id___ans_3" name="_mc_auto_question_10_value" value="An upper bound for the optimal IP objective value."><label for="_mc_auto_question_10_value_id___ans_3"><font color="black"><b>An upper bound for the optimal IP objective value.</b></font></label><br><input type="radio" id="_mc_auto_question_10_value_id___ans_4" name="_mc_auto_question_10_value" value="Unrelated to the optimal IP objective value."><label for="_mc_auto_question_10_value_id___ans_4"><font color="black"><b>Unrelated to the optimal IP objective value.</b></font></label><br><input type="radio" id="_mc_auto_question_10_value_id___ans_5" name="_mc_auto_question_10_value" value="None of the above." checked="true"><label for="_mc_auto_question_10_value_id___ans_5"><font color="black"><b>None of the above.</b></font></label><br></div><br>
-
-<label><font color="black"><b>Question 11:<br>In general for this problem, the running time needed to solve the LP relaxation is:</b></font></label><br><div class="row"><input type="radio" id="_mc_auto_question_11_time_id___ans_1" name="_mc_auto_question_11_time" value="Approximately equal to the running time needed for the IP problem."><label for="_mc_auto_question_11_time_id___ans_1"><font color="black"><b>Approximately equal to the running time needed for the IP problem.</b></font></label><br><input type="radio" id="_mc_auto_question_11_time_id___ans_2" name="_mc_auto_question_11_time" value="Significantly lower than the running time needed for the IP problem."><label for="_mc_auto_question_11_time_id___ans_2"><font color="black"><b>Significantly lower than the running time needed for the IP problem.</b></font></label><br><input type="radio" id="_mc_auto_question_11_time_id___ans_3" name="_mc_auto_question_11_time" value="Significantly higher than the running time needed for the IP problem."><label for="_mc_auto_question_11_time_id___ans_3"><font color="black"><b>Significantly higher than the running time needed for the IP problem.</b></font></label><br><input type="radio" id="_mc_auto_question_11_time_id___ans_4" name="_mc_auto_question_11_time" value="None of the above." checked="true"><label for="_mc_auto_question_11_time_id___ans_4"><font color="black"><b>None of the above.</b></font></label><br></div><br>
-
-</body></html>
+</body>
+</html>
