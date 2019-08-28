@@ -3,7 +3,7 @@ function inject_inputs(tagname, target) {
     console.log(inputs);
     for (var i=0; i < inputs.length; i++) {
         var input = inputs[i];
-        target[input.name] = input.value;
+        target[input.id] = input.value;
     }
 }
 
@@ -15,11 +15,11 @@ function scrape_inputs() {
     return result;
 }
 
-function download_file(obj){
+function download_file(obj,name){
     var txt = JSON.stringify(obj);
     var a = window.document.createElement('a');
-    a.href = 'data:application/json,'+txt;
-    a.download = 'answer.json';
+    a.href = 'data:application/json;encoding=UTF-8,'+txt;
+    a.download =  name + '.json';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
