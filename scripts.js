@@ -16,6 +16,12 @@ function scrape_inputs() {
 }
 
 function download_file(obj,name){
+    var form = document.getElementById("my_form");
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+    
     var txt = JSON.stringify(obj);
     var a = window.document.createElement('a');
     a.href = 'data:application/json;encoding=UTF-8,'+txt;
