@@ -1,10 +1,16 @@
-function scrape_inputs() {
-    var inputs = document.getElementsByTagName('input');
-    var result = {};
+function inject_inputs(tagname, target) {
+    var inputs = document.getElementsByTagName(tagname);
+    console.log(inputs);
     for (var i=0; i < inputs.length; i++) {
         var input = inputs[i];
-        result[input.name] = input.value;
+        target[input.name] = input.value;
     }
+}
+
+function scrape_inputs() {
+    var result = {};
+    inject_inputs('input', result);
+    inject_inputs('textarea', result);
     console.log(result);
     return result;
 }
