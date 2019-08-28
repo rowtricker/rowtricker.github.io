@@ -38,272 +38,280 @@
     <!-- -->
     <!--SMALL IP-->
     <!-- -->
-    <div class="container">
-        <hr>
-        <h4>Small IP</h4>
-        <hr>
-        <!--
-        <label for="_num_auto_decimals_2_question_1_ip_val_small_id_"><font color="black"><b>Question 1:<br>For
-            the small instance, state the optimal IP objective value.</b></font></label><br><label
-            for="_num_auto_decimals_2_question_1_ip_val_small_id_"><font color="black"><b>If needed,
-        round your answer to 2 decimal places.</b></font></label><br>
-    -->
-        <h6>Question 1</h6>
-        <p>
-            For the small instance, state the optimal IP objective value.
-            If needed, round your answer to 2 decimal places.
-        </p>
-        <div class="input-group">
-            <input type="number" class="form-control"
-                   id="_num_auto_decimals_2_question_1_ip_val_small_id_"
-                   name="_num_auto_decimals_2_question_1_ip_val_small"
-                   value="0" min="-Infinity"
-                   max="Infinity" step="0.01"
-                   required="true">
-        </div>
-        <br/>
+    <form>
+        <div class="container">
+            <hr>
+            <h4>Small IP</h4>
+            <hr>
+            <!--
+            <label for="_num_auto_decimals_2_question_1_ip_val_small_id_"><font color="black"><b>Question 1:<br>For
+                the small instance, state the optimal IP objective value.</b></font></label><br><label
+                for="_num_auto_decimals_2_question_1_ip_val_small_id_"><font color="black"><b>If needed,
+            round your answer to 2 decimal places.</b></font></label><br>
+        -->
+            <h6>Question 1</h6>
+            <p>
+                For the small instance, state the optimal IP objective value.
+                If needed, round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_1_ip_val_small_id_"
+                       name="_num_auto_decimals_2_question_1_ip_val_small"
+                       value="0" min="-Infinity"
+                       max="Infinity" step="0.01"
+                       required="true">
+            </div>
+            <br/>
 
-        <h6>Question 2</h6>
-        <p>
-            For the small instance, state the optimal IP solution as
-            a column vector. Your answer should be a numeric 5 x 1 matrix. Your answer will be
-            automatically rounded to 2 decimal.
-        </p>
-        <div class="form-group">
+            <h6>Question 2</h6>
+            <p>
+                For the small instance, state the optimal IP solution as
+                a column vector. Your answer should be a numeric 5 x 1 matrix. Your answer will be
+                automatically rounded to 2 decimal.
+            </p>
+            <div class="form-group">
             <textarea class="form-control" rows="5"
                       id="_numarea_manual_decimals_2_question_2_ip_sol_small_id__shadow"
+                      required
                       oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_2_ip_sol_small_id__shadow','_numarea_manual_decimals_2_question_2_ip_sol_small_id_','_numarea_manual_decimals_2_question_2_ip_sol_small_id__label',5,1,2)"></textarea>
-            <p>The parsed result is:</p>
-            <textarea class="form-control" rows="5"
-                      id="_numarea_manual_decimals_2_question_2_ip_sol_small_id_"
-                      readonly="true"></textarea>
-            <label for="_numarea_manual_decimals_2_question_2_ip_sol_small_id_"
-                   id="_numarea_manual_decimals_2_question_2_ip_sol_small_id__label"></label>
+                <p>The parsed result is:</p>
+                <textarea class="form-control" rows="5"
+                          id="_numarea_manual_decimals_2_question_2_ip_sol_small_id_"
+                          readonly="true"></textarea>
+                <label for="_numarea_manual_decimals_2_question_2_ip_sol_small_id_"
+                       id="_numarea_manual_decimals_2_question_2_ip_sol_small_id__label"></label>
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <!-- -->
-        <!--LARGE IP-->
-        <!-- -->
-        <hr>
-        <h4>Large IP</h4>
-        <hr>
+        <div class="container">
+            <!-- -->
+            <!--LARGE IP-->
+            <!-- -->
+            <hr>
+            <h4>Large IP</h4>
+            <hr>
 
-        <h6>Question 3</h6>
-        <p>
-            For the large instance, state the optimal IP objective value. If needed,
-            round your answer to 2 decimal places.
-        </p>
-        <div class="input-group">
-            <input type="number" class="form-control"
-                   id="_num_auto_decimals_2_question_3_ip_val_large_id_"
-                   value="0"
-                   min="-Infinity"
-                   max="Infinity"
-                   step="0.01"
-                   required="true">
-        </div>
-        <br/>
+            <h6>Question 3</h6>
+            <p>
+                For the large instance, state the optimal IP objective value. If needed,
+                round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_3_ip_val_large_id_"
+                       value="0"
+                       min="-Infinity"
+                       max="Infinity"
+                       step="0.01"
+                       required="true">
+            </div>
+            <br/>
 
-        <h6>Question 4</h6>
-        <p>For the large instance, state the optimal IP solution as a column vector. Your answer
-            should be a numeric 210 x 1 matrix. Your answer will be automatically rounded to 2
-            decimal places.</p>
-        <div class="form-group">
+            <h6>Question 4</h6>
+            <p>For the large instance, state the optimal IP solution as a column vector. Your answer
+                should be a numeric 210 x 1 matrix. Your answer will be automatically rounded to 2
+                decimal places.</p>
+            <div class="form-group">
             <textarea class="form-control" rows="5"
                       id="_numarea_manual_decimals_2_question_4_ip_sol_large_id__shadow"
-                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_4_ip_sol_small_id__shadow','_numarea_manual_decimals_2_question_4_ip_sol_small_id_','_numarea_manual_decimals_2_question_4_ip_sol_small_id__label',210,1,2)"></textarea>
-            <p>The parsed result is:</p>
-            <textarea class="form-control" rows="5"
-                      id="_numarea_manual_decimals_2_question_4_ip_sol_small_id_"
-                      readonly="true"></textarea>
-            <label for="_numarea_manual_decimals_2_question_4_ip_sol_small_id_"
-                   id="_numarea_manual_decimals_2_question_4_ip_sol_small_id__label"></label>
-        </div>
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_4_ip_sol_large_id__shadow','_numarea_manual_decimals_2_question_4_ip_sol_large_id_','_numarea_manual_decimals_2_question_4_ip_sol_large_id__label',210,1,2)"></textarea>
+                <p>The parsed result is:</p>
+                <textarea class="form-control" rows="5"
+                          id="_numarea_manual_decimals_2_question_4_ip_sol_large_id_"
+                          readonly="true"></textarea>
+                <label for="_numarea_manual_decimals_2_question_4_ip_sol_large_id_"
+                       id="_numarea_manual_decimals_2_question_4_ip_sol_large_id__label"></label>
+            </div>
 
-        <h6>Question 5</h6>
-        <p>For the large instance, state the running time needed to solve the IP to optimality.</p>
-        <div class="input-group">
-            <input type="number" class="form-control"
-                   id="_num_manual_decimals_2_question_5_ip_time_large_id_"
-                   name="_num_manual_decimals_2_question_5_ip_time_large"
-                   value="0" min="0"
-                   max="Infinity"
-                   step="0.01"
-                   required="true">
+            <h6>Question 5</h6>
+            <p>For the large instance, state the running time needed to solve the IP to
+                optimality.</p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_manual_decimals_2_question_5_ip_time_large_id_"
+                       name="_num_manual_decimals_2_question_5_ip_time_large"
+                       value="0" min="0"
+                       max="Infinity"
+                       step="0.01"
+                       required="true">
+            </div>
+            <br>
+
+            <h6>Question 6</h6>
+            <p>For the large instance, state the number of nodes needed to solve the IP to
+                optimality</p>
+
+            <div class="input-group">
+                <input class="form-control" type="number"
+                       id="_num_manual_decimals_0_question_6_ip_nodes_large_id_"
+                       name="_num_manual_decimals_0_question_6_ip_nodes_large"
+                       value="0" min="0"
+                       max="Infinity" step="1"
+                       required="true">
+            </div>
         </div>
         <br>
 
-        <h6>Question 6</h6>
-        <p>For the large instance, state the number of nodes needed to solve the IP to
-            optimality</p>
+        <div class="container">
+            <!-- -->
+            <!--LARGE LP-->
+            <!-- -->
+            <hr>
+            <h4>Large LP</h4>
+            <hr>
 
-        <div class="input-group">
-            <input class="form-control" type="number"
-                   id="_num_manual_decimals_0_question_6_ip_nodes_large_id_"
-                   name="_num_manual_decimals_0_question_6_ip_nodes_large"
-                   value="0" min="0"
-                   max="Infinity" step="1"
-                   required="true">
+            <h6>Question 7</h6>
+            <p>For the large instance, state the optimal LP relaxation objective value.</p>
+            <div class="input-group">
+                <input class="form-control"
+                       type="number"
+                       id="_num_auto_decimals_2_question_7_lp_val_large_id_"
+                       name="_num_auto_decimals_2_question_7_lp_val_large"
+                       value="0"
+                       min="-Infinity"
+                       max="Infinity"
+                       step="0.01"
+                       required><br><br>
+            </div>
+            <br>
+
+            <h6>Question 8</h6>
+            <p>or the large instance, state the running time needed to solve the LP relaxation to
+                optimality</p>
+            <div class="input-group">
+                <input class="form-control"
+                       type="number"
+                       id="_num_manual_decimals_2_question_8_lp_time_large_id_"
+                       name="_num_manual_decimals_2_question_8_lp_time_large"
+                       value="0" min="0"
+                       max="Infinity"
+                       step="0.01"
+                       required>
+            </div>
         </div>
-    </div>
-    <br>
 
-    <div class="container">
-        <!-- -->
-        <!--LARGE LP-->
-        <!-- -->
-        <hr>
-        <h4>Large LP</h4>
-        <hr>
 
-        <h6>Question 7</h6>
-        <p>For the large instance, state the optimal LP relaxation objective value.</p>
-        <div class="input-group">
-            <input class="form-control"
-                   type="number"
-                   id="_num_auto_decimals_2_question_7_lp_val_large_id_"
-                   name="_num_auto_decimals_2_question_7_lp_val_large"
-                   value="0"
-                   min="-Infinity"
-                   max="Infinity"
-                   step="0.01"
-                   required="true"><br><br>
+        <div class="container">
+            <!-- -->
+            <!--THEORY-->
+            <!-- -->
+            <hr>
+            THEORY
+            <hr>
+
+            <h6>Question 9</h6>
+            <p>In general for this problem, the solution of the LP relaxation is:</p>
+            <div class="radio">
+                <input type="radio" id="_mc_auto_question_9_feas_id___ans_1"
+                       name="_mc_auto_question_9_feas"
+                       value="Always infeasible for the IP problem.">
+                Always infeasible for the IP problem.
+            </div>
+            <div class="radio">
+                <input type="radio" id="_mc_auto_question_9_feas_id___ans_2"
+                       name="_mc_auto_question_9_feas"
+                       value="Always feasible for the IP problem.">
+                Always feasible for the IP problem.
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_9_feas_id___ans_3"
+                       name="_mc_auto_question_9_feas"
+                       value="Always potentially feasible for the IP problem.">
+                Always potentially feasible for the IP problem.
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_9_feas_id___ans_4"
+                       name="_mc_auto_question_9_feas"
+                       value="None of the above."
+                       checked>
+                None of the above.
+            </div>
+            <br>
+
+            <h6>Question 10</h6>
+            <p>In general for this problem, the optimal objective value of the LP relaxation is:</p>
+            <div class="radio">
+                <input type="radio" id="_mc_auto_question_10_value_id___ans_1"
+                       name="_mc_auto_question_10_value"
+                       value="Equal to the optimal IP objective value.">
+                Equal to the
+                optimal
+                IP objective value.
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_10_value_id___ans_2"
+                       name="_mc_auto_question_10_value"
+                       value="A lower bound for the optimal IP objective value.">
+                A lower bound for the optimal IP objective value.
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_10_value_id___ans_3"
+                       name="_mc_auto_question_10_value"
+                       value="An upper bound for the optimal IP objective value.">
+                An upper bound
+                for
+                the optimal IP objective value.
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_10_value_id___ans_5"
+                       name="_mc_auto_question_10_value"
+                       value="None of the above."
+                       checked>
+                None of the
+                above.
+            </div>
+            <br>
+
+            <h6>Question 11</h6>
+            <p>In general for this problem, the running time needed to solve the LP relaxation
+                is:</p>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_1"
+                       name="_mc_auto_question_11_time"
+                       value="Approximately equal to the running time needed for the IP problem.">
+                Approximately equal to the running time needed for the IP problem
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_2"
+                       name="_mc_auto_question_11_time"
+                       value="Significantly lower than the running time needed for the IP problem.">
+                Significantly lower than the running time needed for the IP problem.
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_3"
+                       name="_mc_auto_question_11_time"
+                       value="Significantly higher than the running time needed for the IP problem.">
+                Significantly higher than the running time needed for the IP problem.
+            </div>
+            <div class="radio">
+                <input
+                        type="radio"
+                        id="_mc_auto_question_11_time_id___ans_4"
+                        name="_mc_auto_question_11_time"
+                        value="None of the above."
+                        checked>
+                None of the above.
+            </div>
+            <br>
+        </div>
+
+        <div class="container">
+            <button type="submit" class="btn btn-primary btn-lg btn-block"
+                    onclick="download_file(scrape_inputs(),'Exercise 1')">
+                Download Form
+            </button>
         </div>
         <br>
-
-        <h6>Question 8</h6>
-        <p>or the large instance, state the running time needed to solve the LP relaxation to
-            optimality</p>
-        <div class="input-group">
-            <input class="form-control"
-                   type="number"
-                   id="_num_manual_decimals_2_question_8_lp_time_large_id_"
-                   name="_num_manual_decimals_2_question_8_lp_time_large"
-                   value="0" min="0"
-                   max="Infinity"
-                   step="0.01"
-                   required="true">
-        </div>
-    </div>
-
-
-    <div class="container">
-        <!-- -->
-        <!--THEORY-->
-        <!-- -->
-        <hr>
-        THEORY
-        <hr>
-
-        <h6>Question 9</h6>
-        <p>In general for this problem, the solution of the LP relaxation is:</p>
-        <div class="radio">
-            <input type="radio" id="_mc_auto_question_9_feas_id___ans_1"
-                   name="_mc_auto_question_9_feas"
-                   value="Always infeasible for the IP problem.">
-            Always infeasible for the IP problem.
-        </div>
-        <div class="radio">
-            <input type="radio" id="_mc_auto_question_9_feas_id___ans_2"
-                   name="_mc_auto_question_9_feas"
-                   value="Always feasible for the IP problem.">
-            Always feasible for the IP problem.
-        </div>
-        <div class="radio">
-            <input type="radio"
-                   id="_mc_auto_question_9_feas_id___ans_3"
-                   name="_mc_auto_question_9_feas"
-                   value="Always potentially feasible for the IP problem.">
-            Always potentially feasible for the IP problem.
-        </div>
-        <div class="radio">
-            <input type="radio"
-                   id="_mc_auto_question_9_feas_id___ans_4"
-                   name="_mc_auto_question_9_feas"
-                   value="None of the above."
-                   checked="true">
-            None of the above.
-        </div>
-        <br>
-
-        <h6>Question 10</h6>
-        <p>In general for this problem, the optimal objective value of the LP relaxation is:</p>
-        <div class="radio">
-            <input type="radio" id="_mc_auto_question_10_value_id___ans_1"
-                   name="_mc_auto_question_10_value"
-                   value="Equal to the optimal IP objective value.">
-            Equal to the
-            optimal
-            IP objective value.
-        </div>
-        <div class="radio">
-            <input type="radio"
-                   id="_mc_auto_question_10_value_id___ans_2"
-                   name="_mc_auto_question_10_value"
-                   value="A lower bound for the optimal IP objective value.">
-            A lower bound for the optimal IP objective value.
-        </div>
-        <div class="radio">
-            <input type="radio"
-                   id="_mc_auto_question_10_value_id___ans_3"
-                   name="_mc_auto_question_10_value"
-                   value="An upper bound for the optimal IP objective value.">
-            An upper bound
-            for
-            the optimal IP objective value.
-        </div>
-        <div class="radio">
-            <input type="radio"
-                   id="_mc_auto_question_10_value_id___ans_5"
-                   name="_mc_auto_question_10_value"
-                   value="None of the above."
-                   checked="true">
-            None of the
-            above.
-        </div>
-        <br>
-
-        <h6>Question 11</h6>
-        <p>In general for this problem, the running time needed to solve the LP relaxation is:</p>
-        <div class="radio">
-            <input type="radio"
-                   id="_mc_auto_question_11_time_id___ans_1"
-                   name="_mc_auto_question_11_time"
-                   value="Approximately equal to the running time needed for the IP problem.">
-            Approximately equal to the running time needed for the IP problem
-        </div>
-        <div class="radio">
-            <input type="radio"
-                   id="_mc_auto_question_11_time_id___ans_2"
-                   name="_mc_auto_question_11_time"
-                   value="Significantly lower than the running time needed for the IP problem.">
-            Significantly lower than the running time needed for the IP problem.
-        </div>
-        <div class="radio">
-            <input type="radio"
-                   id="_mc_auto_question_11_time_id___ans_3"
-                   name="_mc_auto_question_11_time"
-                   value="Significantly higher than the running time needed for the IP problem.">
-            Significantly higher than the running time needed for the IP problem.
-        </div>
-        <div class="radio">
-            <input
-                    type="radio"
-                    id="_mc_auto_question_11_time_id___ans_4"
-                    name="_mc_auto_question_11_time"
-                    value="None of the above."
-                    checked="true">
-            None of the above.
-        </div>
-        <br>
-    </div>
-    
-    <div class="container">
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="download_file(scrape_inputs())">Download Form</button>
-    </div>
-    <br>
+    </form>
 </div>
 </body>
 </html>
