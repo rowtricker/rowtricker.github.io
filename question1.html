@@ -11,7 +11,7 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-    <script src="http://wzrd.in/standalone/uuid%2Fv1@latest"></script>
+    <script src="https://unpkg.com/node-uuid@1.4.8/uuid.js"></script>
     <script src="scripts.js"></script>
 </head>
 <body>
@@ -44,12 +44,7 @@
             <hr>
             <h4>Small IP</h4>
             <hr>
-            <!--
-            <label for="_num_auto_decimals_2_question_1_ip_val_small_id_"><font color="black"><b>Question 1:<br>For
-                the small instance, state the optimal IP objective value.</b></font></label><br><label
-                for="_num_auto_decimals_2_question_1_ip_val_small_id_"><font color="black"><b>If needed,
-            round your answer to 2 decimal places.</b></font></label><br>
-        -->
+            
             <h6>Question 1</h6>
             <p>
                 For the small instance, state the optimal IP objective value.
@@ -68,8 +63,7 @@
             <h6>Question 2</h6>
             <p>
                 For the small instance, state the optimal IP solution as
-                a column vector. Your answer should be a numeric 5 x 1 matrix. Your answer will be
-                automatically rounded to 2 decimal.
+                a column vector. Your answer should be a numeric 5 x 1 matrix.
             </p>
             <div class="form-group">
             <textarea class="form-control" rows="5"
@@ -111,8 +105,7 @@
 
             <h6>Question 4</h6>
             <p>For the large instance, state the optimal IP solution as a column vector. Your answer
-                should be a numeric 210 x 1 matrix. Your answer will be automatically rounded to 2
-                decimal places.</p>
+                should be a numeric 210 x 1 matrix.</p>
             <div class="form-group">
             <textarea class="form-control" rows="5"
                       id="_numarea_manual_decimals_2_question_4_ip_sol_large_id__shadow"
@@ -127,7 +120,7 @@
 
             <h6>Question 5</h6>
             <p>For the large instance, state the running time needed to solve the IP to
-                optimality.</p>
+                optimality.  Round your answer to 2 decimal places.</p>
             <div class="input-group">
                 <input type="number" class="form-control"
                        id="_num_manual_decimals_2_question_5_ip_time_large_id_"
@@ -163,7 +156,7 @@
             <hr>
 
             <h6>Question 7</h6>
-            <p>For the large instance, state the optimal LP relaxation objective value.</p>
+            <p>For the large instance, state the optimal LP relaxation objective value. If needed, round your answer to 2 decimal places.</p>
             <div class="input-group">
                 <input class="form-control"
                        type="number"
@@ -178,8 +171,8 @@
             <br>
 
             <h6>Question 8</h6>
-            <p>or the large instance, state the running time needed to solve the LP relaxation to
-                optimality</p>
+            <p>For the large instance, state the running time needed to solve the LP relaxation to
+                optimality. Round your answer to 2 decimal places.</p>
             <div class="input-group">
                 <input class="form-control"
                        type="number"
