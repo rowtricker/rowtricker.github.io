@@ -32,35 +32,6 @@ function download_file(obj,name){
     document.body.removeChild(a);
 }
 
-$.fn.serializeObject = function()
-{
-    var o = {};
-    var a = this.serializeArray();
-    $.each(a, function() {
-        if (o[this.name] !== undefined) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
-$(function() {
-    $('form').submit(function() {
-        $('#results').text(JSON.stringify($('#quiz_form').serializeObject()));
-        showForm();
-        //return false;
-    });
-});
-function showForm() {
-    var save = document.getElementById('results').innerHTML;
-    console.log(save);
-    document.getElementById("submission_embedded_quiz_form_answer").value = save;
-}
-
 function roundString(value, decimals)
 {
     // adjusted from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
