@@ -10,6 +10,7 @@ function inject_inputs(tagname, target) {
 function scrape_inputs() {
     var result = {};
     inject_inputs('input', result);
+    result['id'] = uuidv4();
     inject_inputs('textarea', result);
     console.log(result);
     return result;
