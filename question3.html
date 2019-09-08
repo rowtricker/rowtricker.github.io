@@ -35,6 +35,345 @@
         </div>
     </div>
 
+    <form>
+        <div class="container">
+            <hr>
+            <h4>MIP with first formulation</h4>
+            <hr>
+
+            <h6>Question 1</h6>
+            <p>
+                <label for="_num_auto_decimals_2_question_1_ip_val_1_id">For the first formulation,
+                    state the optimal MIP objective value.</label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_1_ip_val_1_id" value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+            <br>
+
+            <h6>Question 2</h6>
+            <p>
+                <label for="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__shadow">For the
+                    first
+                    formulation, state the x-matrix of the optimal MIP solution.</label>
+            </p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__shadow','_numarea_manual_decimals_2_question_2_ip_sol_x_1_id_','_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__label',100,100,2)"></textarea>
+            <p>The parsed result is:</p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id_"
+                      readonly="true"></textarea>
+            <label for="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id_"
+                   id="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__label"></label>
+            <br>
+
+            <h6>Question 3</h6>
+            <p>
+                <label for="_numarea_manual_decimals_2_question_3_ip_sol_y_1_id__shadow">For the
+                    first
+                    formulation, state the y-vector of the optimal MIP solution as a
+                    column vector</label>.
+            </p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_3_ip_sol_y_1_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_3_ip_sol_y_1_id__shadow','_numarea_manual_decimals_2_question_3_ip_sol_y_1_id_','_numarea_manual_decimals_2_question_3_ip_sol_y_1_id__label',100,100,2)"></textarea>
+            <p>The parsed result is:</p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_3_ip_sol_y_1_id_"
+                      readonly="true"></textarea>
+            <label for="_numarea_manual_decimals_2_question_3_ip_sol_y_1_id_"
+                   id="_numarea_manual_decimals_2_question_3_ip_sol_y_1_id__label"></label>
+            <br>
+
+            <h6>Question 4</h6>
+            <p>
+                <label for="_num_auto_decimals_2_question_4_ip_time_1_id">For the first formulation,
+                    state the running time needed to solve the MIP to optimality.
+                </label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_4_ip_time_1_id" value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+            <br>
+
+            <h6>Question 5</h6>
+            <p>
+                <label for="nodes_ip_1">For the first formulation, state the number of nodes needed
+                    to solve the MIP to optimality.</label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="nodes_ip_1" value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>LP with first formulation</h4>
+            <hr>
+
+            <h6>Question 6</h6>
+            <p>
+                <label for="value_lp_1">For the first formulation, state the optimal LP relaxation
+                    objective value.</label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control" id="value_lp_1" step="0.01" required>
+            </div>
+            <br>
+
+            <h6>Question 7</h6>
+            <p>
+                <label for="time_lp_1">For the first formulation, state the running time needed to
+                    solve the LP relaxation to optimality</label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control" id="time_lp_1" step="0.01" required>
+            </div>
+            <br>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>MIP with second formulation</h4>
+            <hr>
+
+            <h6>Question 8</h6>
+            <p>
+                <label for="value_ip_2">For the second formulation,
+                    state the optimal MIP objective value.</label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="value_ip_2" value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+            <br>
+
+            <h6>Question 9</h6>
+            <p>
+                <label for="_numarea_manual_decimals_2_question_2_ip_sol_x_2_id__shadow">For the
+                    second formulation, state the x-matrix of the optimal MIP solution.</label>
+            </p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_2_ip_sol_x_2_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_2_ip_sol_x_2_id__shadow','_numarea_manual_decimals_2_question_2_ip_sol_x_2_id_','_numarea_manual_decimals_2_question_2_ip_sol_x_2_id__label',100,100,2)"></textarea>
+            <p>The parsed result is:</p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_2_ip_sol_x_2_id_"
+                      readonly="true"></textarea>
+            <label for="_numarea_manual_decimals_2_question_2_ip_sol_x_2_id_"
+                   id="_numarea_manual_decimals_2_question_2_ip_sol_x_2_id__label"></label>
+            <br>
+
+            <h6>Question 10</h6>
+            <p>
+                <label for="_numarea_manual_decimals_2_question_3_ip_sol_y_2_id__shadow">For the
+                    second formulation, state the y-vector of the optimal MIP solution as a column
+                    vector</label>.
+            </p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_3_ip_sol_y_2_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_3_ip_sol_y_2_id__shadow','_numarea_manual_decimals_2_question_3_ip_sol_y_2_id_','_numarea_manual_decimals_2_question_3_ip_sol_y_2_id__label',100,100,2)"></textarea>
+            <p>The parsed result is:</p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_3_ip_sol_y_2_id_"
+                      readonly="true"></textarea>
+            <label for="_numarea_manual_decimals_2_question_3_ip_sol_y_2_id_"
+                   id="_numarea_manual_decimals_2_question_3_ip_sol_y_2_id__label"></label>
+            <br>
+
+            <h6>Question 11</h6>
+            <p>
+                <label for="_num_auto_decimals_2_question_4_ip_time_2_id">For the second
+                    formulation, state the running time needed to solve the MIP to optimality.
+                </label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_4_ip_time_2_id" value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+            <br>
+
+            <h6>Question 12</h6>
+            <p>
+                <label for="nodes_ip_2">For the seond formulation, state the number of nodes needed
+                    to solve the MIP to optimality.</label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="nodes_ip_2" value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+            <br>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>LP with second formulation</h4>
+            <hr>
+
+            <h6>Question 13</h6>
+            <p>
+                <label for="value_lp_2">For the second formulation, state the optimal LP relaxation
+                    objective value.</label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control" id="value_lp_2" step="0.01" required>
+            </div>
+            <br>
+
+            <h6>Question 14</h6>
+            <p>
+                <label for="time_lp_2">For the second formulation, state the running time needed to
+                    solve the LP relaxation to optimality</label>
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control" id="time_lp_2" step="0.01" required>
+            </div>
+            <br>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>Theory</h4>
+            <hr>
+
+            <h6>Question 15</h6>
+            <p>In general for this problem, the feasible region of the MIP for the second
+                formulation is:</p>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_1"
+                       name="_mc_auto_question_11_time"
+                       value="Decreasing faster than a linear function.">
+                <label for="_mc_auto_question_11_time_id___ans_1">Equal to that for the first
+                    formulation.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_2"
+                       name="_mc_auto_question_11_time"
+                       value="Linearly decreasing.">
+                <label for="_mc_auto_question_11_time_id___ans_2">A subset of that for the first
+                    formulation.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_3"
+                       name="_mc_auto_question_11_time"
+                       value="Decreasing slower than a linear function.">
+                <label for="_mc_auto_question_11_time_id___ans_3">A superset of that for the first
+                    formulation.</label>
+            </div>
+            <div class="radio">
+                <input
+                        type="radio"
+                        id="_mc_auto_question_11_time_id___ans_4"
+                        name="_mc_auto_question_11_time"
+                        value="Practically constant."
+                        checked>
+                <label for="_mc_auto_question_11_time_id___ans_4">Neither a subset nor a superset of
+                    that for the first formulation.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="None of the above."
+                       id="_mc_auto_question_11_time_id___ans_5">
+                <label for="_mc_auto_question_11_time_id___ans_5">None of the above</label>
+            </div>
+            <br>
+
+            <h6>Question 16</h6>
+            <p>In general for this problem, the feasible region of the LP relaxation for the second
+                formulation is:</p>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_16_time_id___ans_1"
+                       name="_mc_auto_question_16_time"
+                       value="Decreasing faster than a linear function.">
+                <label for="_mc_auto_question_11_time_id___ans_1">Equal to that for the first
+                    formulation.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_16_time_id___ans_2"
+                       name="_mc_auto_question_16_time"
+                       value="Linearly decreasing.">
+                <label for="_mc_auto_question_11_time_id___ans_2">A subset of that for the first
+                    formulation.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_16_time_id___ans_3"
+                       name="_mc_auto_question_16_time"
+                       value="Decreasing slower than a linear function.">
+                <label for="_mc_auto_question_11_time_id___ans_3">A superset of that for the first
+                    formulation.</label>
+            </div>
+            <div class="radio">
+                <input
+                        type="radio"
+                        id="_mc_auto_question_16_time_id___ans_4"
+                        name="_mc_auto_question_16_time"
+                        value="Practically constant."
+                        checked>
+                <label for="_mc_auto_question_11_time_id___ans_4">Neither a subset nor a superset of
+                    that for the first formulation.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="None of the above."
+                       id="_mc_auto_question_16_time_id___ans_5">
+                <label for="_mc_auto_question_16_time_id___ans_5">None of the above</label>
+            </div>
+            <br>
+
+            <h6>Question 17</h6>
+            <p>In general for this problem, when applying the branch-and-bound algorithm:</p>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_17_time_id___ans_1"
+                       name="_mc_auto_question_16_time"
+                       value="Decreasing faster than a linear function.">
+                <label for="_mc_auto_question_11_time_id___ans_1">The first formulation is
+                    preferred.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_17_time_id___ans_2"
+                       name="_mc_auto_question_16_time"
+                       value="Linearly decreasing.">
+                <label for="_mc_auto_question_11_time_id___ans_2">The second formulation is
+                    preferred.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="None of the above."
+                       id="_mc_auto_question_17_time_id___ans_5">
+                <label for="_mc_auto_question_16_time_id___ans_5">None of the above</label>
+            </div>
+        </div>
+    </form>
+    <div class="container">
+        <button type="submit" class="btn btn-primary btn-lg btn-block handin-btn"
+                onclick="download_file(scrape_inputs(),'Exercise 3')">
+            Download Form
+        </button>
+    </div>
+    <br>
+    
+
 </div>
+
+
 </body>
 </html>
