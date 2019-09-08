@@ -35,6 +35,183 @@
         </div>
     </div>
 
+
+    <form>
+        <div class="container">
+            <hr>
+            <h4>IP</h4>
+            <hr>
+
+            <h6>Question 1</h6>
+            <p>State your student number (only the digits).</p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="student_number" value="0"
+                       min="0" max="Infinity" step="1" required>
+            </div>
+            <br>
+
+            <h6>Question 2</h6>
+            <p>For your student number, state the optimal IP objective value.</p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="ip_value" value="0"
+                       min="0" max="Infinity" step="0.01" required>
+            </div>
+            <br>
+
+            <h6>Question 3</h6>
+            <p>For your student number, state the optimal IP solution.</p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__shadow','_numarea_manual_decimals_2_question_2_ip_sol_x_1_id_','_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__label',6,6,2)"></textarea>
+            <p>The parsed result is:</p>
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id_"
+                      readonly="true"></textarea>
+            <label for="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id_"
+                   id="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__label"></label>
+            <br>
+
+            <h6>Question 4</h6>
+            <p>
+                For your student number, state the number of nodes needed to solve the IP to
+                optimality.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="ip_nodes" value="0"
+                       min="0" max="Infinity" step="1" required>
+            </div>
+            <br>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>Theory</h4>
+            <hr>
+
+            <h6>Question 5</h6>
+            <p>
+                In general for this problem, the solution of the LP relaxation is:
+            </p>
+            <div class="radio">
+                <input type="radio" id="_mc_auto_question_10_value_id___ans_1"
+                       name="_mc_auto_question_10_value"
+                       value="Equal to the optimal IP objective value.">
+                <label for="_mc_auto_question_10_value_id___ans_1">Always infeasible for the IP
+                    problem.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_10_value_id___ans_2"
+                       name="_mc_auto_question_10_value"
+                       value="A lower bound for the optimal IP objective value.">
+                <label for="_mc_auto_question_10_value_id___ans_2">Always feasible for the IP
+                    problem.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_10_value_id___ans_3"
+                       name="_mc_auto_question_10_value"
+                       value="An upper bound for the optimal IP objective value.">
+                <label for="_mc_auto_question_10_value_id___ans_3">Always potentially feasible for
+                    the IP problem.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_10_value_id___ans_5"
+                       name="_mc_auto_question_10_value"
+                       value="None of the above."
+                       checked>
+                <label for="_mc_auto_question_10_value_id___ans_5">None of the above.</label>
+            </div>
+            <br>
+
+            <h6>Question 6</h6>
+            <p>
+                In general for this problem, the optimal objective value of the LP relaxation is:
+            </p>
+            <div class="radio">
+                <input type="radio" id="_mc_auto_question_6_value_id___ans_1"
+                       name="_mc_auto_question_6_value"
+                       value="Equal to the optimal IP objective value.">
+                <label for="_mc_auto_question_6_value_id___ans_1">Equal to the optimal IP objective
+                    value.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_6_value_id___ans_2"
+                       name="_mc_auto_question_6_value"
+                       value="A lower bound for the optimal IP objective value.">
+                <label for="_mc_auto_question_6_value_id___ans_2">A lower bound for the optimal IP
+                    objective value.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_6_value_id___ans_3"
+                       name="_mc_auto_question_6_value"
+                       value="An upper bound for the optimal IP objective value.">
+                <label for="_mc_auto_question_6_value_id___ans_3">An upper bound for the optimal IP
+                    objective value.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_6_value_id___ans_4"
+                       name="_mc_auto_question_6_value"
+                       value="An upper bound for the optimal IP objective value.">
+                <label for="_mc_auto_question_6_value_id___ans_4">Unrelated to the optimal IP
+                    objective value.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_6_value_id___ans_5"
+                       name="_mc_auto_question_6_value"
+                       value="None of the above."
+                       checked>
+                <label for="_mc_auto_question_10_value_id___ans_5">None of the above.</label>
+            </div>
+            <br>
+
+            <h6>Question 7</h6>
+            <p>In general for this problem, the running time needed to solve the LP relaxation
+                is:</p>
+            <div class="radio">
+                <input type="radio" id="_mc_auto_question_7_value_id___ans_1"
+                       name="_mc_auto_question_7_value"
+                       value="Equal to the optimal IP objective value.">
+                <label for="_mc_auto_question_7_value_id___ans_1">Always approximately equal to the
+                    running time needed for the IP problem.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_7_value_id___ans_2"
+                       name="_mc_auto_question_7_value"
+                       value="A lower bound for the optimal IP objective value.">
+                <label for="_mc_auto_question_7_value_id___ans_2">Always significantly lower than
+                    the running time needed for the IP problem.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_7_value_id___ans_3"
+                       name="_mc_auto_question_7_value"
+                       value="An upper bound for the optimal IP objective value.">
+                <label for="_mc_auto_question_7_value_id___ans_3">Always significantly higher than
+                    the running time needed for the IP problem.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_7_value_id___ans_5"
+                       name="_mc_auto_question_7_value"
+                       value="None of the above."
+                       checked>
+                <label for="_mc_auto_question_7_value_id___ans_5">None of the above.</label>
+            </div>
+            <br>
+
+        </div>
+    </form>
 </div>
 </body>
 </html>
