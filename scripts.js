@@ -1,31 +1,34 @@
-function inject_inputs(tagname, target) {
-    var inputs = document.getElementsByTagName(tagname);
-    console.log(inputs);
-    for (var i=0; i < inputs.length; i++) {
-        var input = inputs[i];
-        target[input.id] = input.value;
-    }
-}
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
 
-function scrape_inputs() {
-    var result = {};
-    inject_inputs('input', result);
-    result['form_id'] = generateUUID();
-    inject_inputs('textarea', result);
-    console.log(result);
-    return result;
-}
-
-function download_file(obj,name){
+function download_file(name){
     var form = document.getElementById("my_form");
     if (!form.checkValidity()) {
         form.reportValidity();
         return;
     }
     
-    var txt = JSON.stringify(obj);
+    var result = $('#my_form').serializeObject();
+    result['form_id'] = generateUUID();
+    var txt = JSON.stringify(result);
+    console.log(txt);
+    
     var a = window.document.createElement('a');
-    a.href = 'data:application/json;encoding=UTF-8,'+txt;
+    a.href = 'data:application/json;encoding=UTF-8,'+ txt;
     a.download =  name + '.json';
     document.body.appendChild(a);
     a.click();
