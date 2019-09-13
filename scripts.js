@@ -25,10 +25,9 @@ function download_file(name){
     var result = $('#my_form').serializeObject();
     result['form_id'] = generateUUID();
     var txt = JSON.stringify(result);
-    console.log(txt);
     
     var a = window.document.createElement('a');
-    a.href = 'data:application/json;encoding=UTF-8,'+ txt;
+    a.href = 'data:application/json;encoding=UTF-8,'+ encodeURIComponent(txt);
     a.download =  name + '.json';
     document.body.appendChild(a);
     a.click();
