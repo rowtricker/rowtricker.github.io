@@ -59,7 +59,7 @@
             <p>State your student number (only the digits).</p>
             <div class="input-group">
                 <input type="number" class="form-control"
-                       id="student_number" value="0"
+                       id="student_number" name="_num_manual_decimals_0_question_1_student_number" value="0"
                        min="0" max="Infinity" step="1" required>
             </div>
             <br>
@@ -68,7 +68,7 @@
             <p>For your student number, state the optimal IP objective value.</p>
             <div class="input-group">
                 <input type="number" class="form-control"
-                       id="ip_value" value="0"
+                       id="ip_value" name="_num_manual_decimals_2_question_2_student_opt_value" value="0"
                        min="0" max="Infinity" step="0.01" required>
             </div>
             <br>
@@ -83,6 +83,7 @@
             <p>The parsed result is:</p>
             <textarea class="form-control" rows="5"
                       id="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id_"
+                      name="_numarea_manual_decimals_2_question_3_student_opt_solution"
                       readonly="true"></textarea>
             <label for="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id_"
                    id="_numarea_manual_decimals_2_question_2_ip_sol_x_1_id__label"></label>
@@ -95,7 +96,9 @@
             </p>
             <div class="input-group">
                 <input type="number" class="form-control"
-                       id="ip_nodes" value="0"
+                       id="ip_nodes"
+                       name="_num_manual_decimals_0_question_4_student_opt_nodes"
+                       value="0"
                        min="0" max="Infinity" step="1" required>
             </div>
             <br>
@@ -112,7 +115,7 @@
             </p>
             <div class="radio">
                 <input type="radio" id="_mc_auto_question_10_value_id___ans_1"
-                       name="_mc_auto_question_10_value"
+                       name="_mc_auto_question_5_feas"
                        value="Equal to the optimal IP objective value.">
                 <label for="_mc_auto_question_10_value_id___ans_1">Always infeasible for the IP
                     problem.</label>
@@ -120,7 +123,7 @@
             <div class="radio">
                 <input type="radio"
                        id="_mc_auto_question_10_value_id___ans_2"
-                       name="_mc_auto_question_10_value"
+                       name="_mc_auto_question_5_feas"
                        value="A lower bound for the optimal IP objective value.">
                 <label for="_mc_auto_question_10_value_id___ans_2">Always feasible for the IP
                     problem.</label>
@@ -128,7 +131,7 @@
             <div class="radio">
                 <input type="radio"
                        id="_mc_auto_question_10_value_id___ans_3"
-                       name="_mc_auto_question_10_value"
+                       name="_mc_auto_question_5_feas"
                        value="An upper bound for the optimal IP objective value.">
                 <label for="_mc_auto_question_10_value_id___ans_3">Always potentially feasible for
                     the IP problem.</label>
@@ -136,7 +139,7 @@
             <div class="radio">
                 <input type="radio"
                        id="_mc_auto_question_10_value_id___ans_5"
-                       name="_mc_auto_question_10_value"
+                       name="_mc_auto_question_5_feas"
                        value="None of the above."
                        checked>
                 <label for="_mc_auto_question_10_value_id___ans_5">None of the above.</label>
@@ -193,7 +196,7 @@
                 is:</p>
             <div class="radio">
                 <input type="radio" id="_mc_auto_question_7_value_id___ans_1"
-                       name="_mc_auto_question_7_value"
+                       name="_mc_auto_question_7_time"
                        value="Equal to the optimal IP objective value.">
                 <label for="_mc_auto_question_7_value_id___ans_1">Always approximately equal to the
                     running time needed for the IP problem.</label>
@@ -201,7 +204,7 @@
             <div class="radio">
                 <input type="radio"
                        id="_mc_auto_question_7_value_id___ans_2"
-                       name="_mc_auto_question_7_value"
+                       name="_mc_auto_question_7_time"
                        value="A lower bound for the optimal IP objective value.">
                 <label for="_mc_auto_question_7_value_id___ans_2">Always significantly lower than
                     the running time needed for the IP problem.</label>
@@ -209,7 +212,7 @@
             <div class="radio">
                 <input type="radio"
                        id="_mc_auto_question_7_value_id___ans_3"
-                       name="_mc_auto_question_7_value"
+                       name="_mc_auto_question_7_time"
                        value="An upper bound for the optimal IP objective value.">
                 <label for="_mc_auto_question_7_value_id___ans_3">Always significantly higher than
                     the running time needed for the IP problem.</label>
@@ -217,7 +220,7 @@
             <div class="radio">
                 <input type="radio"
                        id="_mc_auto_question_7_value_id___ans_5"
-                       name="_mc_auto_question_7_value"
+                       name="_mc_auto_question_7_time"
                        value="None of the above."
                        checked>
                 <label for="_mc_auto_question_7_value_id___ans_5">None of the above.</label>
