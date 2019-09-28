@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Assignment 2 Combinatorial Optimization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Instructions</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Theory</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="jumbotron text-center">
+            <h1>Combinatorial Optimization 2019-2020</h1>
+            <h2>Theory</h2>
+        </div>
+    </div>
+
+    <form id="my_form">
+        <div class="container">
+            <hr>
+            <h4>General Properties</h4>
+            <hr>
+
+            <h6>Question 1</h6>
+            <p>
+                <label for="lagrangian_heuristic_ans_1">When applying subgradient optimisation to this problem, the
+                    objective value of each encountered
+                    Lagrangian heuristic solution is always:</label>
+            </p>
+            <div class="radio" id="radio">
+                <input type="radio"
+                       id="lagrangian_heuristic_ans_1"
+                       name="lagrangian_heuristic_iteration"
+                       value="Equal to that of the previous iteration.">
+                <label for="lagrangian_heuristic_ans_1">Equal to that of the previous iteration.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_heuristic_ans_2" name="lagrangian_heuristic_iteration"
+                       value="At most that of the previous iteration.">
+                <label for="lagrangian_heuristic_ans_2">At most that of the previous iteration.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_heuristic_ans_3" name="lagrangian_heuristic_iteration"
+                       value="At least that of the previous iteration.">
+                <label for="lagrangian_heuristic_ans_3">At least that of the previous iteration.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_heuristic_ans_4" name="lagrangian_heuristic_iteration"
+                       value="None of the above.">
+                <label for="lagrangian_heuristic_ans_4">None of the above.</label>
+            </div>
+            <br>
+
+            <h6>Question 2</h6>
+            <p>
+                <label>When applying subgradient optimisation to this problem, the objective values of the encountered
+                    Lagrangian heuristic solutions:</label>
+            </p>
+            <div class="radio" id="radio">
+                <input type="radio"
+                       id="lagrangian_heuristic_trend_ans_1"
+                       name="lagrangian_heuristic_trend"
+                       value="Are stationary over the iterations.">
+                <label for="lagrangian_heuristic_trend_ans_1">Are stationary over the iterations.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_heuristic_trend_ans_2" name="lagrangian_heuristic_trend"
+                       value="Have a decreasing trend over the iterations.">
+                <label for="lagrangian_heuristic_trend_ans_2">Have a decreasing trend over the iterations.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_heuristic_trend_ans_3" name="lagrangian_heuristic_trend"
+                       value="Have an increasing trend over the iterations.">
+                <label for="lagrangian_heuristic_trend_ans_3">Have an increasing trend over the iterations.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_heuristic_trend_ans_4" name="lagrangian_heuristic_trend"
+                       value="None of the above.">
+                <label for="lagrangian_heuristic_trend_ans_4">None of the above.</label>
+            </div>
+            <br>
+
+            <h6>Question 3</h6>
+            <p>
+                <label for="lagrangian_heuristic_ans_1">When applying subgradient optimisation to this problem, the
+                    optimal
+                    value of the Lagrangian function is always:</label>
+            </p>
+            <div class="radio" id="radio">
+                <input type="radio"
+                       id="lagrangian_function_iteration_ans_1"
+                       name="lagrangian_function_iteration"
+                       value="Equal to that of the previous iteration.">
+                <label for="lagrangian_function_iteration_ans_1">Equal to that of the previous iteration.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_function_iteration_ans_2" name="lagrangian_function_iteration"
+                       value="At most that of the previous iteration.">
+                <label for="lagrangian_function_iteration_ans_2">At most that of the previous iteration.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_function_iteration_ans_3" name="lagrangian_function_iteration"
+                       value="At least that of the previous iteration.">
+                <label for="lagrangian_function_iteration_ans_3">At least that of the previous iteration.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_function_iteration_ans_4" name="lagrangian_function_iteration"
+                       value="None of the above.">
+                <label for="lagrangian_function_iteration_ans_4">None of the above.</label>
+            </div>
+            <br>
+
+            <h6>Question 4</h6>
+            <p>
+                <label>When applying subgradient optimisation to this problem, the optimal values of the Lagrangian
+                    function:</label>
+            </p>
+            <div class="radio">
+                <input type="radio"
+                       id="lagrangian_function_trend_ans_1"
+                       name="lagrangian_function_trend"
+                       value="Are stationary over the iterations.">
+                <label for="lagrangian_function_trend_ans_1">Are stationary over the iterations.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_function_trend_ans_2" name="lagrangian_function_trend"
+                       value="Have a decreasing trend over the iterations.">
+                <label for="lagrangian_function_trend_ans_2">Have a decreasing trend over the iterations.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_function_trend_ans_3" name="lagrangian_function_trend"
+                       value="Have an increasing trend over the iterations.">
+                <label for="lagrangian_function_trend_ans_3">Have an increasing trend over the iterations.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="lagrangian_function_trend_ans_4" name="lagrangian_function_trend"
+                       value="None of the above.">
+                <label for="lagrangian_function_trend_ans_4">None of the above.</label>
+            </div>
+            <br>
+
+            <h6>Question 5</h6>
+            <p>
+                <label>For this problem, the specified Lagrangian dual problem is a concave optimisation problem in
+                    lambda
+                    since:</label>
+            </p>
+            <div class="radio">
+                <input type="radio" name="lagrangian_dual" id="lagrangian_dual_ans_1"
+                       value="It is the minimum of linear functions in lambda.">
+                <label for="lagrangian_dual_ans_1">It is the minimum of linear functions in lambda.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="lagrangian_dual" id="lagrangian_dual_ans_2"
+                       value="It is the maximum of linear functions in lambda.">
+                <label for="lagrangian_dual_ans_2">It is the maximum of linear functions in lambda.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="lagrangian_dual" id="lagrangian_dual_ans_3"
+                       value="The primal problem is a convex optimisation problem and the dual of convex is concave.">
+                <label for="lagrangian_dual_ans_2">The primal problem is a convex optimisation problem and the dual of
+                    convex is concave.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="lagrangian_dual" id="lagrangian_dual_ans_4"
+                       value="It has the same optimal objective value as the LP relaxation, which is convex, and the dual of convex is concave.">
+                <label for="lagrangian_dual_ans_4">It has the same optimal objective value as the LP relaxation, which
+                    is convex, and the dual of convex is concave.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="lagrangian_dual" id="lagrangian_dual_ans_5"
+                       value="None of the above.">
+                <label for="lagrangian_dual_ans_5">None of the above.</label>
+            </div>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>Results for Small Instance</h4>
+            <hr>
+
+            <h6>Question 6</h6>
+            <p>
+                <label>For the small instance, based on the instance data and the results of the specified subgradient
+                    optimisation:</label>
+            </p>
+            <div class="radio">
+                <input type="radio" name="small" id="small_ans_1"
+                       value="The best lower and upper bounds have not converged to each other and the solution cannot be argued to be optimal.">
+                <label for="small_ans_1">The best lower and upper bounds have not converged to each other and the
+                    solution
+                    cannot be argued to
+                    be optimal.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="small" id="small_ans_2"
+                       value="The best lower and upper bounds have not converged to each other and the solution can be argued to be optimal.">
+                <label for="small_ans_2">The best lower and upper bounds have not converged to each other and the
+                    solution
+                    can be argued to be optimal.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="small" id="small_ans_3"
+                       value="The best lower and upper bounds have converged to each other and the solution cannot be argued to be optimal.">
+                <label for="small_ans_3">The best lower and upper bounds have converged to each other and the solution
+                    cannot be argued to be optimal.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="small" id="small_ans_4"
+                       value="The best lower and upper bounds have converged to each other and the solution can be argued to be optimal.">
+                <label for="small_ans_4">The best lower and upper bounds have converged to each other and the solution
+                    can
+                    be argued to be optimal.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="small_ans_5" name="small"
+                       value="None of the above.">
+                <label for="small_ans_5">None of the above.</label>
+            </div>
+
+
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>Results for Large Instance</h4>
+            <hr>
+
+            <h6>Question 7</h6>
+            <p>
+                <label>For the large instance, based on the instance data and the results of the specified subgradient
+                    optimisation:</label>
+            </p>
+            <div class="radio">
+                <input type="radio" name="large" id="large_ans_1"
+                       value="The best lower and upper bounds have not converged to each other and the solution cannot be argued to be optimal.">
+                <label for="large_ans_1">The best lower and upper bounds have not converged to each other and the
+                    solution
+                    cannot be argued to
+                    be optimal.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="large" id="large_ans_2"
+                       value="The best lower and upper bounds have not converged to each other and the solution can be argued to be optimal.">
+                <label for="large_ans_2">The best lower and upper bounds have not converged to each other and the
+                    solution
+                    can be argued to be optimal.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="large" id="large_ans_3"
+                       value="The best lower and upper bounds have converged to each other and the solution cannot be argued to be optimal.">
+                <label for="large_ans_3">The best lower and upper bounds have converged to each other and the solution
+                    cannot be argued to be optimal.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" name="large" id="large_ans_4"
+                       value="The best lower and upper bounds have converged to each other and the solution can be argued to be optimal.">
+                <label for="large_ans_4">The best lower and upper bounds have converged to each other and the solution
+                    can
+                    be argued to be optimal.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="large_ans_5" name="large"
+                       value="None of the above.">
+                <label for="large_ans_5">None of the above.</label>
+            </div>
+            <br>
+        </div>
+    </form>
+    <div class="container">
+        <button type="submit" class="btn btn-primary btn-lg btn-block handin-btn"
+                onclick="download_file('Theory')">
+            Download Form
+        </button>
+    </div>
+    <br>
+</div>
+
+
+</body>
