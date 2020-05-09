@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Assignment 1 Combinatorial Optimization</title>
+    <title>Profile Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,6 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0d71049518.js" crossorigin="anonymous"></script>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -18,114 +19,132 @@
     <script src="scripts.js"></script>
 </head>
 <body>
-<!-- -->
-<!--UTILITY FUNCTIONS-->
-<!-- -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Rowan Hoogervorst</a>
 
-<div id="util_functions_div_id" class="container">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home</a>
+            <a class="nav-item nav-link" href="#about">About</a>
+            <a class="nav-item nav-link" href="#publications">Publications</a>
+            <a class="nav-item nav-link" href="#teachhing">Teaching</a>
+        </ul>
+    </div>
+    <a class="navbar-brand" href="https://github.com/rowtricker">
+        <i class="fab fa-github"></i>
+    </a>
+    <a class="navbar-brand" href="https://www.linkedin.com/in/rowan-hoogervorst-4ba922b8">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a class="navbar-brand" href="https://orcid.org/0000-0003-0358-9503">
+        <i class="fab fa-orcid"></i>
+    </a>
+</nav>
 
-    <div class="container">
-        <nav class="navbar navbar-expand-lg bg-light navbar-light justify-content-center">
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Switch assignment
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item active" href="#">Computer Assignment 1</a>
-                            <a class="dropdown-item" href="instructionsAssignment2.html">Computer Assignment 2</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Instructions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="question1.html">Exercise 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="question2.html">Exercise 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="question3.html">Exercise 3</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="question4.html">Exercise 4</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<div class="container" id="about">
+    <hr>
+    <h4>About Me</h4>
+    <hr>
 
-        <div class="jumbotron text-center">
-            <h1>Combinatorial Optimization 2019-2020</h1>
-            <h2>Computer Assignment 1</h2>
-            <h2>Instructions</h2>
+    <div class="row justify-content-md-start">
+        <div class="col col-lg-4">
+            <img src="foto.JPG" alt="Profile picture" style="width:300px;">
+        </div>
+        <div class="col col-lg-4">
+            PhD Candidate
+            <br>
+            Econometric Institute
+            <br>
+            Erasmus School of Economics
+            <br>
+            Erasmus University Rotterdam
         </div>
     </div>
-
-    <div class="container">
-        <hr>
-        <h4>Workflow</h4>
-        <hr>
-        Use this website in the following way:
-        <ol>
-            <li>Select an exercise in the header bar above.</li>
-            <li>Answer all the questions for that exercise.</li>
-            <li>When done with filling in the answers for that exercise, click on "Download form".</li>
-            <li>Store the generated file carefully at a location where you can access it later.</li>
-            <li>Go to the next exercise.</li>
-        </ol>
-
-        Note that:
-        <ol>
-            <li><b>Answers are <u>not</u> saved!</b> This means that you lose your answers when you
-                go to another page. In particular, if you go to the next exercise, you lose all
-                answers on the current page.
-            </li>
-            <li><b>The answer files still need to be submitted in Codegrade!</b> Generating the
-                answer file does not store your answers at any place on this website.
-            </li>
-        </ol>
-        <br>
-    </div>
-
-
-    <!-- -->
-    <!--INSTRUCTIONS-->
-    <!-- -->
-    <div class="container">
-        <hr>
-        <h4>Guideline for the questions</h4>
-        <hr>
-        For the numerical questions:
-        <ol>
-            <li>Use a dot "." as decimal mark.</li>
-            <li>Round your answer to the listed number of decimals if needed.</li>
-        </ol>
-        
-        For the questions where the solution must be stated:
-        <ol>
-            <li>Direct copy-paste from Aimms is supported and therefore recommended.</li>
-            <li>Each space, tab, and comma is interpreted as an element delimiter.</li>
-            <li>Each newline and semicolon is interpreted as a row delimiter.</li>
-            <li>Empty elements are set to zero.</li>
-        </ol>
-
-        For the multiple-choice questions:
-        <ol>
-            <li>Choose the most precise and correct answer.</li>
-        </ol>
-        <br>
-        <br>
-        <br>
-    </div>
 </div>
 
+<div class="container">
+    <hr>
+    <h4 id="publications">Publications</h4>
+    <hr>
+    <ul>
+        <li>
+            <a href="http://hdl.handle.net/1765/122716">A Variable Neighborhood Search Heuristic for Rolling Stock
+                Rescheduling
+            </a>
+            <br>
+            Rowan Hoogervorst, Twan Dollevoet, Gábor Maróti and Dennis Huisman. Working paper.
+        </li>
+        <li>
+            <a href="https://doi.org/10.1287/trsc.2019.0968">Reducing Passenger Delays by Rolling Stock Rescheduling</a>
+            <br>
+            R Hoogervorst, T Dollevoet, G Maróti and D Huisman. Transportation Science (2020).
+        </li>
+        <li>
+            <a href="https://doi.org/10.1016/j.ins.2019.05.011">Solving bin-packing problems under privacy preservation:
+                possibilities and trade-offs</a>
+            <br>
+            Rowan Hoogervorst, Yingqian Zhang, Gamze Tillem, Zekeriya Erkin and Sicco Verwer. Information Sciences, 500,
+            203-216.
+        </li>
+        <li>
+            <a href="https://doi.org/10.1007/978-3-319-38791-8_18"> Aspect-Based Sentiment Analysis on the Web Using
+                Rhetorical Structure Theory</a>
+            <br>
+            Rowan Hoogervorst, Erik Essink, Wouter Jansen, Max van den Helder, Kim Schouten, Flavius Frasincar and Maite
+            Taboada. In: Bozzon A., Cudre-Maroux P., Pautasso C. (eds) Web Engineering. ICWE 2016. Lecture Notes in
+            Computer Science, vol 9671. Springer, Cham
+        </li>
+    </ul>
 </div>
+
+<div class="container">
+    <hr>
+    <h4 id="education">Education</h4>
+    <hr>
+    
+    <ul>
+        <li>
+            <b>Master of Science (MSc) in Econometrics and Management Science</b> (Summa cum laude)
+            <br>
+            Specialization: Operations Research and Quantitative Logistics
+            <br>
+            Erasmus School of Economics, Erasmus University Rotterdam
+        </li>
+        <li>
+            <b>Bachelor of Science (BSc) in Econometrics and Operations Research</b> (Summa cum laude)
+            <br>
+            Erasmus School of Economics, Erasmus University Rotterdam
+        </li>
+    </ul>
+</div>
+
+<div class="container" id="teaching">
+    <hr>
+    <h4>Teaching</h4>
+    <hr>
+    
+    Courses I have been involved in:
+    <ul>
+        <li>Combinatorial Optimization:
+            <ul>
+                <li>2019-2020</li>
+                <li>2018-2019</li>
+                <li>2017-2018</li>
+                <li>2016-2017</li>
+            </ul>
+        </li>
+        <li>
+            Bachelor thesis Econometrics and Operations Research:
+            <ul>
+                <li>2019-2020</li>
+                <li>2017-2018</li>
+                <li>2016-2017</li>
+            </ul>
+        </li>
+    </ul>
+    
+    
+</div>
+
 </body>
-</html>
+
